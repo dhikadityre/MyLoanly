@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		705B016B30456AB90032BDB1 /* CoreDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 705B016A30456AB90032BDB1 /* CoreDomain */; };
 		705B016D30456ABE0032BDB1 /* PackageData in Frameworks */ = {isa = PBXBuildFile; productRef = 705B016C30456ABE0032BDB1 /* PackageData */; };
+		705B017030456CFC0032BDB1 /* DebugSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 705B016F30456CFC0032BDB1 /* DebugSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 			files = (
 				705B016B30456AB90032BDB1 /* CoreDomain in Frameworks */,
 				705B016D30456ABE0032BDB1 /* PackageData in Frameworks */,
+				705B017030456CFC0032BDB1 /* DebugSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +143,7 @@
 			packageProductDependencies = (
 				705B016A30456AB90032BDB1 /* CoreDomain */,
 				705B016C30456ABE0032BDB1 /* PackageData */,
+				705B016F30456CFC0032BDB1 /* DebugSwift */,
 			);
 			productName = MyLoanly;
 			productReference = 705B00B3304560E40032BDB1 /* MyLoanly.app */;
@@ -224,6 +227,9 @@
 			);
 			mainGroup = 705B00AA304560E40032BDB1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				705B016E30456CFC0032BDB1 /* XCRemoteSwiftPackageReference "DebugSwift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 705B00B4304560E40032BDB1 /* Products */;
 			projectDirPath = "";
@@ -608,6 +614,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		705B016E30456CFC0032BDB1 /* XCRemoteSwiftPackageReference "DebugSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DebugSwift/DebugSwift";
+			requirement = {
+				kind = exactVersion;
+				version = 1.19.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		705B016A30456AB90032BDB1 /* CoreDomain */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -616,6 +633,11 @@
 		705B016C30456ABE0032BDB1 /* PackageData */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PackageData;
+		};
+		705B016F30456CFC0032BDB1 /* DebugSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 705B016E30456CFC0032BDB1 /* XCRemoteSwiftPackageReference "DebugSwift" */;
+			productName = DebugSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

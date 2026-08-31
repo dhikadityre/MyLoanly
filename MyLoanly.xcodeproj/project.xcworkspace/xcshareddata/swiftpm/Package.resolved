@@ -1,0 +1,15 @@
+{
+  "originHash" : "067f3ffefa6ee667b63baa4d85a26f0781f9683e154b0cc3292d9190c46f335d",
+  "pins" : [
+    {
+      "identity" : "debugswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/DebugSwift/DebugSwift",
+      "state" : {
+        "revision" : "b85fd86581bc1b67710be82249d8aac2ef61b2f5",
+        "version" : "1.19.0"
+      }
+    }
+  ],
+  "version" : 3
+}
