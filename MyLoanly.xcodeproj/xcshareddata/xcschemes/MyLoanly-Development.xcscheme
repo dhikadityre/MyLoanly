@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "705B00B2304560E40032BDB1"
-               BuildableName = "MyLoanly.app"
+               BuildableName = "MyLoanly Development.app"
                BlueprintName = "MyLoanly"
                ReferencedContainer = "container:MyLoanly.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "705B00B2304560E40032BDB1"
-            BuildableName = "MyLoanly.app"
+            BuildableName = "MyLoanly Development.app"
             BlueprintName = "MyLoanly"
             ReferencedContainer = "container:MyLoanly.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "705B00B2304560E40032BDB1"
-            BuildableName = "MyLoanly.app"
+            BuildableName = "MyLoanly Development.app"
             BlueprintName = "MyLoanly"
             ReferencedContainer = "container:MyLoanly.xcodeproj">
          </BuildableReference>
