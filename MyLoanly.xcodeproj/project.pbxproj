@@ -35,6 +35,11 @@
 		705B00CA304560E70032BDB1 /* MyLoanlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyLoanlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		705B0166304568F30032BDB1 /* PackageData */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PackageData; sourceTree = SOURCE_ROOT; };
 		705B0168304569A30032BDB1 /* CoreDomain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CoreDomain; sourceTree = SOURCE_ROOT; };
+		705B017530456E970032BDB1 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		705B017730456ECF0032BDB1 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		705B017830456EE30032BDB1 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
+		705B017930456EFC0032BDB1 /* UAT.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UAT.xcconfig; sourceTree = "<group>"; };
+		705B017A30456F100032BDB1 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -86,6 +91,7 @@
 		705B00AA304560E40032BDB1 = {
 			isa = PBXGroup;
 			children = (
+				705B017430456E5B0032BDB1 /* XCConfig */,
 				705B01653045689B0032BDB1 /* Packages */,
 				705B00B5304560E40032BDB1 /* MyLoanly */,
 				705B00C3304560E70032BDB1 /* MyLoanlyTests */,
@@ -119,6 +125,18 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		705B017430456E5B0032BDB1 /* XCConfig */ = {
+			isa = PBXGroup;
+			children = (
+				705B017530456E970032BDB1 /* Base.xcconfig */,
+				705B017730456ECF0032BDB1 /* Development.xcconfig */,
+				705B017830456EE30032BDB1 /* Staging.xcconfig */,
+				705B017930456EFC0032BDB1 /* UAT.xcconfig */,
+				705B017A30456F100032BDB1 /* Production.xcconfig */,
+			);
+			path = XCConfig;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
