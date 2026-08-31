@@ -30,7 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		705B00B3304560E40032BDB1 /* MyLoanly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "$(PRODUCT_NAME).app"; path = "$(PRODUCT_NAME).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		705B00B3304560E40032BDB1 /* MyLoanly Development.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyLoanly Development.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		705B00C0304560E70032BDB1 /* MyLoanlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyLoanlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		705B00CA304560E70032BDB1 /* MyLoanlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyLoanlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		705B0166304568F30032BDB1 /* PackageData */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PackageData; sourceTree = SOURCE_ROOT; };
@@ -117,7 +117,7 @@
 		705B00B4304560E40032BDB1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				705B00B3304560E40032BDB1 /* MyLoanly.app */,
+				705B00B3304560E40032BDB1 /* MyLoanly Development.app */,
 				705B00C0304560E70032BDB1 /* MyLoanlyTests.xctest */,
 				705B00CA304560E70032BDB1 /* MyLoanlyUITests.xctest */,
 			);
@@ -177,7 +177,7 @@
 				705B016F30456CFC0032BDB1 /* DebugSwift */,
 			);
 			productName = MyLoanly;
-			productReference = 705B00B3304560E40032BDB1 /* MyLoanly.app */;
+			productReference = 705B00B3304560E40032BDB1 /* MyLoanly Development.app */;
 			productType = "com.apple.product-type.application";
 		};
 		705B00BF304560E70032BDB1 /* MyLoanlyTests */ = {
