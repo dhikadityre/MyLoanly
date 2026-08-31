@@ -6,10 +6,7 @@
 //
 
 import Foundation
-
-public protocol CoreRepository {
-    func getLoans() async
-}
+import CoreDomain
 
 public class CoreRepositoryImpl: CoreRepository {
     private let client: HTTPClient
@@ -30,11 +27,13 @@ public class CoreRepositoryImpl: CoreRepository {
     }
 
     
-    public func getLoans() async {
+    public func getLoans() async throws -> [Loan] {
         let url = baseURL.appendingPathComponent("/andreascandle/p2p_json_test/main/api/json/loans.json")
-        do {
-            let (data, response) = try await client.get(from: url)
-            let dto: [LoanDTO] = try RemoteMapper.map(data, response, decoder: decoder)
-        } catch {}
+        let (data, response) = try await client.get(from: url)
+        let dto: [LoanDTO] = try RemoteMapper.map(data, response, decoder: decoder)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dto.map { $0.toDomain(dateFormatter: dateFormatter) }
     }
 }

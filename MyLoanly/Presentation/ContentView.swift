@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreDomain
+import PackageData
 
 struct ContentView: View {
     var body: some View {
@@ -15,9 +16,22 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
-            Text(CoreDomain().greetings())
         }
         .padding()
+        .onAppear {
+            let repository = CoreRepositoryImpl(
+                client: URLSessionHTTPClient(),
+                baseURL: URL(string: "https://raw.githubusercontent.com")!
+            )
+            Task {
+                do {
+                    let loans = try await repository.getLoans()
+                    print("Fetched loans count: \(loans.count)")
+                } catch {
+                    print("Error fetching loans: \(error)")
+                }
+            }
+        }
     }
 }
 
