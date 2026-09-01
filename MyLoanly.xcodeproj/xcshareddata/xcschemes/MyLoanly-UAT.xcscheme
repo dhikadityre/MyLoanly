@@ -29,6 +29,19 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "705B00BF304560E70032BDB1"
+               BuildableName = "MyLoanlyTests.xctest"
+               BlueprintName = "MyLoanlyTests"
+               ReferencedContainer = "container:MyLoanly.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug-UAT"
@@ -69,7 +82,7 @@
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug-Staging">
+      buildConfiguration = "Debug-UAT">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release-UAT"

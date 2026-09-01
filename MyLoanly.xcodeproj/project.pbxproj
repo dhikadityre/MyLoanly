@@ -20,19 +20,11 @@
 			remoteGlobalIDString = 705B00B2304560E40032BDB1;
 			remoteInfo = MyLoanly;
 		};
-		705B00CB304560E70032BDB1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 705B00AB304560E40032BDB1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 705B00B2304560E40032BDB1;
-			remoteInfo = MyLoanly;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		705B00B3304560E40032BDB1 /* MyLoanly Development.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyLoanly Development.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		705B00C0304560E70032BDB1 /* MyLoanlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyLoanlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		705B00CA304560E70032BDB1 /* MyLoanlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyLoanlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		705B0166304568F30032BDB1 /* PackageData */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PackageData; sourceTree = SOURCE_ROOT; };
 		705B0168304569A30032BDB1 /* CoreDomain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CoreDomain; sourceTree = SOURCE_ROOT; };
 		705B017530456E970032BDB1 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
@@ -66,11 +58,6 @@
 			path = MyLoanlyTests;
 			sourceTree = "<group>";
 		};
-		705B00CD304560E70032BDB1 /* MyLoanlyUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MyLoanlyUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,13 +78,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		705B00C7304560E70032BDB1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -108,7 +88,6 @@
 				705B01653045689B0032BDB1 /* Packages */,
 				705B00B5304560E40032BDB1 /* MyLoanly */,
 				705B00C3304560E70032BDB1 /* MyLoanlyTests */,
-				705B00CD304560E70032BDB1 /* MyLoanlyUITests */,
 				705B016930456AB90032BDB1 /* Frameworks */,
 				705B00B4304560E40032BDB1 /* Products */,
 			);
@@ -119,7 +98,6 @@
 			children = (
 				705B00B3304560E40032BDB1 /* MyLoanly Development.app */,
 				705B00C0304560E70032BDB1 /* MyLoanlyTests.xctest */,
-				705B00CA304560E70032BDB1 /* MyLoanlyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,29 +181,6 @@
 			productReference = 705B00C0304560E70032BDB1 /* MyLoanlyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		705B00C9304560E70032BDB1 /* MyLoanlyUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 705B00DA304560E70032BDB1 /* Build configuration list for PBXNativeTarget "MyLoanlyUITests" */;
-			buildPhases = (
-				705B00C6304560E70032BDB1 /* Sources */,
-				705B00C7304560E70032BDB1 /* Frameworks */,
-				705B00C8304560E70032BDB1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				705B00CC304560E70032BDB1 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				705B00CD304560E70032BDB1 /* MyLoanlyUITests */,
-			);
-			name = MyLoanlyUITests;
-			packageProductDependencies = (
-			);
-			productName = MyLoanlyUITests;
-			productReference = 705B00CA304560E70032BDB1 /* MyLoanlyUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -240,10 +195,6 @@
 						CreatedOnToolsVersion = 26.2;
 					};
 					705B00BF304560E70032BDB1 = {
-						CreatedOnToolsVersion = 26.2;
-						TestTargetID = 705B00B2304560E40032BDB1;
-					};
-					705B00C9304560E70032BDB1 = {
 						CreatedOnToolsVersion = 26.2;
 						TestTargetID = 705B00B2304560E40032BDB1;
 					};
@@ -268,7 +219,6 @@
 			targets = (
 				705B00B2304560E40032BDB1 /* MyLoanly */,
 				705B00BF304560E70032BDB1 /* MyLoanlyTests */,
-				705B00C9304560E70032BDB1 /* MyLoanlyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -282,13 +232,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		705B00BE304560E70032BDB1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		705B00C8304560E70032BDB1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -312,13 +255,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		705B00C6304560E70032BDB1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -326,11 +262,6 @@
 			isa = PBXTargetDependency;
 			target = 705B00B2304560E40032BDB1 /* MyLoanly */;
 			targetProxy = 705B00C1304560E70032BDB1 /* PBXContainerItemProxy */;
-		};
-		705B00CC304560E70032BDB1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 705B00B2304560E40032BDB1 /* MyLoanly */;
-			targetProxy = 705B00CB304560E70032BDB1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -453,28 +384,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyLoanly.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyLoanly";
-			};
-			name = "Debug-Development";
-		};
-		705B0182304570C00032BDB1 /* Debug-Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 705B017730456ECF0032BDB1 /* Development.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W6NYRRRG5Q;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhikadityre.id.MyLoanlyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MyLoanly;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/$(APP_PRODUCT_NAME).app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/$(APP_PRODUCT_NAME)";
 			};
 			name = "Debug-Development";
 		};
@@ -596,28 +506,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyLoanly.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyLoanly";
-			};
-			name = "Debug-Staging";
-		};
-		705B0186304570CC0032BDB1 /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 705B017830456EE30032BDB1 /* Staging.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W6NYRRRG5Q;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhikadityre.id.MyLoanlyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MyLoanly;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/$(APP_PRODUCT_NAME).app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/$(APP_PRODUCT_NAME)";
 			};
 			name = "Debug-Staging";
 		};
@@ -739,28 +628,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyLoanly.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyLoanly";
-			};
-			name = "Debug-UAT";
-		};
-		705B018A304570D70032BDB1 /* Debug-UAT */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 705B017930456EFC0032BDB1 /* UAT.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W6NYRRRG5Q;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhikadityre.id.MyLoanlyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MyLoanly;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/$(APP_PRODUCT_NAME).app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/$(APP_PRODUCT_NAME)";
 			};
 			name = "Debug-UAT";
 		};
@@ -882,28 +750,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyLoanly.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyLoanly";
-			};
-			name = "Debug-Production";
-		};
-		705B018E304570E40032BDB1 /* Debug-Production */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 705B017A30456F100032BDB1 /* Production.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W6NYRRRG5Q;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhikadityre.id.MyLoanlyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MyLoanly;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/$(APP_PRODUCT_NAME).app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/$(APP_PRODUCT_NAME)";
 			};
 			name = "Debug-Production";
 		};
@@ -1018,28 +865,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyLoanly.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyLoanly";
-			};
-			name = "Release-Staging";
-		};
-		705B0192304571020032BDB1 /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 705B017830456EE30032BDB1 /* Staging.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W6NYRRRG5Q;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhikadityre.id.MyLoanlyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MyLoanly;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/$(APP_PRODUCT_NAME).app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/$(APP_PRODUCT_NAME)";
 			};
 			name = "Release-Staging";
 		};
@@ -1154,28 +980,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyLoanly.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyLoanly";
-			};
-			name = "Release-UAT";
-		};
-		705B01963045710D0032BDB1 /* Release-UAT */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 705B017930456EFC0032BDB1 /* UAT.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W6NYRRRG5Q;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhikadityre.id.MyLoanlyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MyLoanly;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/$(APP_PRODUCT_NAME).app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/$(APP_PRODUCT_NAME)";
 			};
 			name = "Release-UAT";
 		};
@@ -1290,28 +1095,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyLoanly.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyLoanly";
-			};
-			name = "Release-Production";
-		};
-		705B019A304571160032BDB1 /* Release-Production */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 705B017A30456F100032BDB1 /* Production.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W6NYRRRG5Q;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhikadityre.id.MyLoanlyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MyLoanly;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/$(APP_PRODUCT_NAME).app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/$(APP_PRODUCT_NAME)";
 			};
 			name = "Release-Production";
 		};
@@ -1356,20 +1140,6 @@
 				705B0191304571020032BDB1 /* Release-Staging */,
 				705B01953045710D0032BDB1 /* Release-UAT */,
 				705B0199304571160032BDB1 /* Release-Production */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Debug-Development";
-		};
-		705B00DA304560E70032BDB1 /* Build configuration list for PBXNativeTarget "MyLoanlyUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				705B0182304570C00032BDB1 /* Debug-Development */,
-				705B0186304570CC0032BDB1 /* Debug-Staging */,
-				705B018A304570D70032BDB1 /* Debug-UAT */,
-				705B018E304570E40032BDB1 /* Debug-Production */,
-				705B0192304571020032BDB1 /* Release-Staging */,
-				705B01963045710D0032BDB1 /* Release-UAT */,
-				705B019A304571160032BDB1 /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Debug-Development";

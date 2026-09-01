@@ -15,4 +15,5 @@ DOC_BASE_URL = https:/$()/raw.githubusercontent.com/andreascandle/p2p_json_test/
 ENV_NAME = Staging
 
 PRODUCT_NAME = $(APP_NAME) UAT
+APP_PRODUCT_NAME = $(APP_NAME) UAT
 PRODUCT_BUNDLE_IDENTIFIER = $(BASE_BUNDLE_IDENTIFIER)
