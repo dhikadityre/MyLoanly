@@ -150,6 +150,12 @@ Below is the user interface preview template for **MyLoanly**:
 | **Loan Documents Sheet** | <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-09-01 at 20 58 52" src="https://github.com/user-attachments/assets/cefd582a-d503-4fcc-a32a-516359d6ad4d" /> | <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-09-01 at 21 00 07" src="https://github.com/user-attachments/assets/daa136ae-0bfb-464d-aedf-63d25008ae56" /> | Verified document checklist with modal sheet previews for legal and financial files. |
 | **About & Settings Screen** | <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-09-01 at 20 59 05" src="https://github.com/user-attachments/assets/e1720eee-295e-4e6e-ae57-658e71d34314" /> | <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-09-01 at 21 00 15" src="https://github.com/user-attachments/assets/b120675a-c7b4-4c1f-8b65-20eb598ba9f0" /> | App release metadata, developer portfolio links, and dynamic in-app language picker. |
 
+Below is the video preview for **MyLoanly**:
+
+| Dark Mode Indonesia | Light Mode English | 
+| :--- | :---: |
+| https://youtube.com/shorts/g-pDTN3csrI | https://www.youtube.com/shorts/83KG2MUt7u4 |
+
 ---
 
 ## 🛠 Tech Stack & Dependencies
