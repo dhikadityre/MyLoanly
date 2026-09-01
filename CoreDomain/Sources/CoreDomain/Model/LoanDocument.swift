@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct LoanDocument {
+public struct LoanDocument: Equatable {
     public let type: DocumentType
     public let url: URL
 

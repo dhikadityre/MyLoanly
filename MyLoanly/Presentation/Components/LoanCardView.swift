@@ -82,10 +82,7 @@ extension LoanCardView {
             renderCenterContentSection()
             renderLoanPurposeTag()
         }
-        .padding()
-        .background(AppColors.surface)
-        .cornerRadius(16)
-        .shadow(color: Color.black.opacity(0.04), radius: 5, x: 0, y: 2)
+        .cardStyle()
     }
 }
 
