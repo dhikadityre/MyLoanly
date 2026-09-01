@@ -1,0 +1,20 @@
+//
+//  Base.xcconfig
+//  MyLoanly
+//
+//  Created by DHIKA ADITYA ARE on 31/08/26.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+
+APP_NAME = MyLoanly
+BASE_BUNDLE_IDENTIFIER = com.dhikadityre.myloanly
+PRODUCT_MODULE_NAME = $(TARGET_NAME)
+APP_PRODUCT_NAME = $(APP_NAME)
+
+APP_VERSION = 1.0.0
+BUILD_NUMBER = 20260901001
+
+MARKETING_VERSION = $(APP_VERSION)
+CURRENT_PROJECT_VERSION = $(BUILD_NUMBER)
