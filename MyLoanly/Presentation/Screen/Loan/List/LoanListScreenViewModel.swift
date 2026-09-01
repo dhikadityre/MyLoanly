@@ -15,12 +15,21 @@ public final class LoanListScreenViewModel: ObservableObject {
     @Published public var state: LoanViewState = .idle
     @Published public var searchText: String = ""
     @Published public private(set) var loans: [Loan] = []
-    @Published public private(set) var selectedRiskRating: RiskRating? = nil
-    @Published public private(set) var selectedPurpose: LoanPurpose? = nil
+    @Published public private(set) var selectedRiskRating: String? = nil
+    @Published public private(set) var selectedPurpose: String? = nil
     @Published public private(set) var sortBy: LoanSortOption = .default
     
-    public let availableRiskRatings: [RiskRating] = [.a, .b, .c]
-    public let availableLoanPurposes: [LoanPurpose] = [.businessExpansion, .education, .homeImprovement, .others]
+    public let availableRiskRatings: [String] = [
+        RiskRating.a.rawValue,
+        RiskRating.b.rawValue,
+        RiskRating.c.rawValue
+    ]
+    public let availableLoanPurposes: [String] = [
+        LoanPurpose.businessExpansion.rawValue,
+        LoanPurpose.education.rawValue,
+        LoanPurpose.homeImprovement.rawValue,
+        LoanPurpose.others.rawValue
+    ]
     public let availableSortOptions: [LoanSortOption] = LoanSortOption.allCases
     
     public init(getLoansUseCase: GetLoansUseCase) {
@@ -29,7 +38,7 @@ public final class LoanListScreenViewModel: ObservableObject {
     
     // MARK: - Computed Property
     
-    public var filteredLoans: [Loan] {
+    public var rawFilteredLoans: [Loan] {
         var result = loans
         
         // Search Filter
@@ -43,12 +52,12 @@ public final class LoanListScreenViewModel: ObservableObject {
         
         // Risk Rating Filter
         if let selectedRiskRating = selectedRiskRating {
-            result = result.filter { $0.riskRating == selectedRiskRating }
+            result = result.filter { $0.riskRating.rawValue == selectedRiskRating }
         }
         
         // Purpose Filter
         if let selectedPurpose = selectedPurpose {
-            result = result.filter { $0.purpose == selectedPurpose }
+            result = result.filter { $0.purpose.rawValue == selectedPurpose }
         }
         
         // Sorting
@@ -70,12 +79,16 @@ public final class LoanListScreenViewModel: ObservableObject {
         return result
     }
     
+    public var filteredLoans: [LoanItemDataView] {
+        rawFilteredLoans.map { LoanItemDataView(loan: $0) }
+    }
+    
     public var isFilteredLoansEmpty: Bool {
-        filteredLoans.isEmpty
+        rawFilteredLoans.isEmpty
     }
     
     public var totalActiveLoanAmount: Decimal {
-        filteredLoans.reduce(0) { $0 + $1.amount.amount }
+        rawFilteredLoans.reduce(0) { $0 + $1.amount.amount }
     }
     
     public var totalActiveLoanAmountFormatted: String {
@@ -83,7 +96,7 @@ public final class LoanListScreenViewModel: ObservableObject {
     }
     
     public var totalActiveLoanCount: Int {
-        filteredLoans.count
+        rawFilteredLoans.count
     }
     
     // MARK: - Action
@@ -127,8 +140,12 @@ public final class LoanListScreenViewModel: ObservableObject {
     
     // MARK: - (Risk) Filter Actions
     
-    public func onSelectRiskRating(_ rating: RiskRating?) {
+    public func onSelectRiskRating(_ rating: String?) {
         selectedRiskRating = rating
+    }
+    
+    public func onSelectRiskRating(_ rating: RiskRating?) {
+        selectedRiskRating = rating?.rawValue
     }
     
     public func onTapAllRiskFilterThenSetToNil() {
@@ -137,8 +154,12 @@ public final class LoanListScreenViewModel: ObservableObject {
     
     // MARK: - (Purpose) Filter Actions
     
-    public func onSelectPurpose(_ purpose: LoanPurpose?) {
+    public func onSelectPurpose(_ purpose: String?) {
         selectedPurpose = purpose
+    }
+    
+    public func onSelectPurpose(_ purpose: LoanPurpose?) {
+        selectedPurpose = purpose?.rawValue
     }
     
     public func onTapAllPurposeFilterThenSetToNil() {

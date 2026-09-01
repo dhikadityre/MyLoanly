@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreDomain
 
 struct LoanListScreen: View {
     @StateObject var viewModel: LoanListScreenViewModel
@@ -89,7 +88,7 @@ extension LoanListScreen {
                 
                 ForEach(viewModel.availableRiskRatings, id: \.self) { rating in
                     FilterChipView(
-                        title: rating.rawValue,
+                        title: rating,
                         isSelected: viewModel.selectedRiskRating == rating,
                         action: { viewModel.onSelectRiskRating(rating) }
                     )
@@ -114,7 +113,7 @@ extension LoanListScreen {
                 
                 ForEach(viewModel.availableLoanPurposes, id: \.self) { purpose in
                     FilterChipView(
-                        title: purpose.rawValue,
+                        title: purpose,
                         isSelected: viewModel.selectedPurpose == purpose,
                         action: { viewModel.onSelectPurpose(purpose) }
                     )
@@ -217,7 +216,7 @@ extension LoanListScreen {
                     LazyVStack(spacing: 12) {
                         ForEach(viewModel.filteredLoans) { loan in
                             LoanCardView(loan: loan) {
-                                router.navigate(to: .details(loan))
+                                router.navigate(to: .details(loan.loan))
                             }
                         }
                     }
