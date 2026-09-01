@@ -14,8 +14,11 @@ public final class LoanDocumentsScreenViewModel: ObservableObject {
     
     public var isEmpty: Bool { documents.isEmpty }
     
-    public init(documents: [LoanDocument]) {
-        self.documents = documents.map { DocumentItemDataView(document: $0) }
+    public init(
+        documents: [LoanDocument],
+        docBaseURL: URL? = Config.docBaseUrl
+    ) {
+        self.documents = documents.map { DocumentItemDataView(document: $0, docBaseURL: docBaseURL) }
     }
     
     public init(documentDataViews: [DocumentItemDataView]) {

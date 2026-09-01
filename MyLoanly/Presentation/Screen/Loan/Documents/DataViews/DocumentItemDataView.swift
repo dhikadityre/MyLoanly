@@ -15,7 +15,10 @@ public struct DocumentItemDataView: Identifiable, Equatable {
     public let url: URL
     public let resolvedURL: URL
     
-    public init(document: LoanDocument) {
+    public init(
+        document: LoanDocument,
+        docBaseURL: URL? = Config.docBaseUrl
+    ) {
         self.title = document.type.rawValue
         self.url = document.url
         
@@ -28,9 +31,16 @@ public struct DocumentItemDataView: Identifiable, Equatable {
         
         if document.url.scheme != nil {
             self.resolvedURL = document.url
+        } else if let docBaseURL {
+            let baseURLString = docBaseURL.absoluteString.hasSuffix("/")
+                ? String(docBaseURL.absoluteString.dropLast())
+                : docBaseURL.absoluteString
+            let path = document.url.path.hasPrefix("/")
+                ? document.url.path
+                : "/\(document.url.path)"
+            self.resolvedURL = URL(string: baseURLString + path) ?? document.url
         } else {
-            let base = "https://raw.githubusercontent.com/andreascandle/p2p_json_test/main"
-            self.resolvedURL = URL(string: base + document.url.path) ?? document.url
+            self.resolvedURL = document.url
         }
     }
     

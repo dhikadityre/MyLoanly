@@ -11,6 +11,7 @@
 #include "Base.xcconfig"
 
 API_BASE_URL = https:/$()/raw.githubusercontent.com
+DOC_BASE_URL = https:/$()/raw.githubusercontent.com/andreascandle/p2p_json_test/main
 ENV_NAME = Development
 
 PRODUCT_NAME = $(APP_NAME) $(ENV_NAME)

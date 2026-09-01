@@ -10,31 +10,37 @@ import CoreDomain
 import PackageData
 
 struct ContentView: View {
+    @StateObject private var router = LoanNavigationRouter()
+    private let getLoansUseCase: GetLoansUseCase
+    
+    init(config: AppConfig = DefaultAppConfig()) {
+        let baseURL = config.apiBaseUrl ?? URL(string: "")!
+        let repository = CoreRepositoryImpl(
+            client: URLSessionHTTPClient(),
+            baseURL: baseURL
+        )
+        self.getLoansUseCase = GetLoansUseCaseImpl(repository: repository)
+    }
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-        .onAppear {
-            let repository = CoreRepositoryImpl(
-                client: URLSessionHTTPClient(),
-                baseURL: URL(string: "https://raw.githubusercontent.com")!
+        NavigationStack(path: $router.path) {
+            LoanListScreen(
+                viewModel: LoanListScreenViewModel(getLoansUseCase: getLoansUseCase)
             )
-            Task {
-                do {
-                    let loans = try await repository.getLoans()
-                    print("Fetched loans count: \(loans.count)")
-                } catch {
-                    print("Error fetching loans: \(error)")
+            .navigationDestination(for: LoanDestination.self) { destination in
+                switch destination {
+                case .details(let loan):
+                    LoanDetailsScreen(
+                        viewModel: LoanDetailsScreenViewModel(loan: loan)
+                    )
+                case .documents(let loan):
+                    LoanDocumentsScreen(
+                        viewModel: LoanDocumentsScreenViewModel(documents: loan.documents)
+                    )
                 }
             }
         }
+        .tint(AppColors.navy)
+        .environmentObject(router)
     }
-}
-
-#Preview {
-    ContentView()
 }

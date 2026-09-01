@@ -6,5 +6,7 @@
 	<string>$(API_BASE_URL)</string>
 	<key>ENV_NAME</key>
 	<string>$(ENV_NAME)</string>
+	<key>DOC_BASE_URL</key>
+	<string>$(DOC_BASE_URL)</string>
 </dict>
 </plist>
