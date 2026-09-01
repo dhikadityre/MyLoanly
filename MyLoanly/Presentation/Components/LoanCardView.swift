@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreDomain
 
 struct LoanCardView: View {
     let loan: LoanItemDataView
@@ -28,13 +29,13 @@ extension LoanCardView {
                 .font(.headline)
                 .foregroundColor(AppColors.ink)
             Spacer()
-            RiskBadgeView(rating: loan.riskRating)
+            RiskBadgeView(rating: loan.riskRating, resource: .LoanList.risk(loan.riskRating.rawValue))
         }
     }
     
     private func renderAmount() -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text("Amount")
+            Text(.LoanList.amount)
                 .font(.caption)
                 .foregroundColor(AppColors.muted)
             Text(loan.formattedAmount)
@@ -46,7 +47,7 @@ extension LoanCardView {
     
     private func renderTermRate() -> some View {
         VStack(alignment: .trailing, spacing: 4) {
-            Text("Term / Rate")
+            Text(.LoanList.termRate)
                 .font(.caption)
                 .foregroundColor(AppColors.muted)
             Text(loan.formattedTermAndRate)
@@ -65,7 +66,7 @@ extension LoanCardView {
     }
     
     private func renderLoanPurposeTag() -> some View {
-        Text(loan.purpose)
+        Text(loan.loan.purpose.localized)
             .font(.caption)
             .padding(.horizontal, 8)
             .padding(.vertical, 4)

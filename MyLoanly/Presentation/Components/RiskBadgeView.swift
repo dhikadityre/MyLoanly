@@ -10,11 +10,12 @@ import CoreDomain
 
 struct RiskBadgeView: View {
     let rating: RiskRating
+    var resource: LocalizedStringResource? = nil
     
     var body: some View { render() }
     
     private func render() -> some View {
-        Text("Risk \(rating.rawValue)")
+        Text(resource ?? .LoanList.risk(rating.rawValue))
             .font(.caption)
             .fontWeight(.bold)
             .padding(.horizontal, 10)

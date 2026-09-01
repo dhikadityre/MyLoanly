@@ -8,9 +8,21 @@
 import SwiftUI
 
 struct FilterChipView: View {
-    let title: String
+    let titleResource: LocalizedStringResource
     let isSelected: Bool
     let action: () -> Void
+    
+    init(title: String, isSelected: Bool, action: @escaping () -> Void) {
+        self.titleResource = LocalizedStringResource(stringLiteral: title)
+        self.isSelected = isSelected
+        self.action = action
+    }
+    
+    init(titleResource: LocalizedStringResource, isSelected: Bool, action: @escaping () -> Void) {
+        self.titleResource = titleResource
+        self.isSelected = isSelected
+        self.action = action
+    }
     
     var body: some View { render() }
     
@@ -21,7 +33,7 @@ struct FilterChipView: View {
 
 extension FilterChipView {
     private func renderTitle() -> some View {
-        Text(title)
+        Text(titleResource)
             .font(.subheadline)
             .fontWeight(isSelected ? .semibold : .regular)
             .padding(.horizontal, 16)

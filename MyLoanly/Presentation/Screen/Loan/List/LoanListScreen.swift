@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreDomain
 
 struct LoanListScreen: View {
     @StateObject var viewModel: LoanListScreenViewModel
@@ -18,7 +19,7 @@ struct LoanListScreen: View {
             renderSearchAndFilterHeader()
             renderViewState()
         }
-        .navigationTitle("Loans")
+        .navigationTitle(Text(.LoanList.loans))
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 renderToolbarMenu()
@@ -39,7 +40,7 @@ extension LoanListScreen {
                         if viewModel.sortBy == option {
                             Image(systemName: "checkmark")
                         }
-                        Text(option.rawValue)
+                        Text(option.localized)
                     }
                 }
             }
@@ -54,7 +55,7 @@ extension LoanListScreen {
         HStack {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(AppColors.muted)
-            TextField("Search borrower or purpose...", text: $viewModel.searchText)
+            TextField(String(localized: .LoanList.searchBorrowerOrPurpose), text: $viewModel.searchText)
                 .foregroundColor(AppColors.ink)
                 .autocorrectionDisabled()
             if !viewModel.searchText.isEmpty {
@@ -75,13 +76,13 @@ extension LoanListScreen {
     private func renderFilterRisk() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                Text("Risk:")
+                Text(.LoanList.filterRisk)
                     .font(.subheadline)
                     .foregroundColor(AppColors.muted)
                     .padding(.leading, 16)
                 
                 FilterChipView(
-                    title: "All",
+                    titleResource: .LoanList.all,
                     isSelected: viewModel.selectedRiskRating == nil,
                     action: { viewModel.onTapAllRiskFilterThenSetToNil() }
                 )
@@ -100,20 +101,20 @@ extension LoanListScreen {
     private func renderFilterPurpose() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                Text("Purpose:")
+                Text(.LoanList.filterPurpose)
                     .font(.subheadline)
                     .foregroundColor(AppColors.muted)
                     .padding(.leading, 16)
                 
                 FilterChipView(
-                    title: "All",
+                    titleResource: .LoanList.all,
                     isSelected: viewModel.selectedPurpose == nil,
                     action: { viewModel.onTapAllPurposeFilterThenSetToNil() }
                 )
                 
                 ForEach(viewModel.availableLoanPurposes, id: \.self) { purpose in
                     FilterChipView(
-                        title: purpose,
+                        titleResource: LoanPurpose(rawValue: purpose)?.localized ?? LocalizedStringResource(stringLiteral: purpose),
                         isSelected: viewModel.selectedPurpose == purpose,
                         action: { viewModel.onSelectPurpose(purpose) }
                     )
@@ -139,7 +140,7 @@ extension LoanListScreen {
 extension LoanListScreen {
     private func renderTotalPriceActiveLoan() -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text("Total Active Loans")
+            Text(.LoanList.totalActiveLoans)
                 .font(.caption)
                 .foregroundColor(AppColors.muted)
                 .textCase(.uppercase)
@@ -152,7 +153,7 @@ extension LoanListScreen {
     
     private func renderTotalActiveLoan() -> some View {
         VStack(alignment: .trailing, spacing: 4) {
-            Text("Count")
+            Text(.LoanList.count)
                 .font(.caption)
                 .foregroundColor(AppColors.muted)
                 .textCase(.uppercase)
@@ -186,16 +187,18 @@ extension LoanListScreen {
             Image(systemName: "tray")
                 .font(.system(size: 64))
                 .foregroundColor(AppColors.muted)
-            Text("No Loans Found")
+            Text(.LoanList.noLoansFound)
                 .font(.headline)
                 .foregroundColor(AppColors.ink)
-            Text("We couldn't find any loans matching your filters or search criteria.")
+            Text(.LoanList.weCouldntFindAnyLoansMatchingYourFiltersOrSearchCriteria)
                 .font(.subheadline)
                 .foregroundColor(AppColors.muted)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 32)
-            Button("Reset Filters") {
+            Button(action: {
                 viewModel.onResetFilters()
+            }) {
+                Text(.LoanList.resetFilters)
             }
             .buttonStyle(.borderedProminent)
             .tint(AppColors.navy)
@@ -233,7 +236,7 @@ extension LoanListScreen {
             Image(systemName: "exclamationmark.triangle")
                 .font(.system(size: 48))
                 .foregroundColor(.red)
-            Text("Failed to Load Loans")
+            Text(.LoanList.failedToLoadLoans)
                 .font(.headline)
                 .foregroundColor(AppColors.ink)
             Text(message)
@@ -241,10 +244,12 @@ extension LoanListScreen {
                 .foregroundColor(AppColors.muted)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
-            Button("Try Again") {
+            Button(action: {
                 Task {
                     await viewModel.onRetry()
                 }
+            }) {
+                Text(.LoanList.tryAgain)
             }
             .buttonStyle(.bordered)
             .tint(AppColors.navy)
@@ -256,9 +261,11 @@ extension LoanListScreen {
     private func renderLoadingView() -> some View {
         VStack {
             Spacer()
-            ProgressView("Loading loans...")
-                .progressViewStyle(CircularProgressViewStyle())
-                .tint(AppColors.navy)
+            ProgressView {
+                Text(.LoanList.loadingLoans)
+            }
+            .progressViewStyle(CircularProgressViewStyle())
+            .tint(AppColors.navy)
             Spacer()
         }.frame(maxWidth: .infinity)
     }

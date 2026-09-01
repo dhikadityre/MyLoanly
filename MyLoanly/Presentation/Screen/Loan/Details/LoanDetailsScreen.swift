@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreDomain
 
 struct LoanDetailsScreen: View {
     @StateObject var viewModel: LoanDetailsScreenViewModel
@@ -25,7 +26,7 @@ struct LoanDetailsScreen: View {
             .padding()
         }
         .background(AppColors.canvas)
-        .navigationTitle("Loan Details")
+        .navigationTitle(Text(.LoanDetails.loanDetails))
         .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -47,23 +48,41 @@ private extension LoanDetailsScreen {
 // MARK: - General View
 extension LoanDetailsScreen {
     private func renderSectionTitleGeneral(
-        label: String,
+        labelResource: LocalizedStringResource,
         systemImageName: String
     ) -> some View {
-        Label(label, systemImage: systemImageName)
-            .font(.headline)
-            .foregroundColor(AppColors.navy)
+        Label {
+            Text(labelResource)
+        } icon: {
+            Image(systemName: systemImageName)
+        }
+        .font(.headline)
+        .foregroundColor(AppColors.navy)
     }
     
     private func renderKeyValueGeneral(
-        key: String,
+        keyResource: LocalizedStringResource,
         value: String
     ) -> some View {
         HStack {
-            Text(key)
+            Text(keyResource)
                 .foregroundColor(AppColors.muted)
             Spacer()
             Text(value)
+                .fontWeight(.semibold)
+                .foregroundColor(AppColors.ink)
+        }
+    }
+    
+    private func renderKeyValueLocalized(
+        keyResource: LocalizedStringResource,
+        valueResource: LocalizedStringResource
+    ) -> some View {
+        HStack {
+            Text(keyResource)
+                .foregroundColor(AppColors.muted)
+            Spacer()
+            Text(valueResource)
                 .fontWeight(.semibold)
                 .foregroundColor(AppColors.ink)
         }
@@ -75,7 +94,7 @@ extension LoanDetailsScreen {
     private func renderLoanAmountAndRisk(overview: OverviewDataView) -> some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
-                Text("Loan Amount")
+                Text(.LoanDetails.loanAmount)
                     .font(.caption)
                     .foregroundColor(AppColors.muted)
                     .textCase(.uppercase)
@@ -84,14 +103,14 @@ extension LoanDetailsScreen {
                     .foregroundColor(AppColors.ink)
             }
             Spacer()
-            RiskBadgeView(rating: overview.riskRating)
+            RiskBadgeView(rating: overview.riskRating, resource: .LoanDetails.risk(overview.riskRating.rawValue))
         }
     }
     
     private func renderInterestRateAndTerm(overview: OverviewDataView) -> some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
-                Text("Interest Rate")
+                Text(.LoanDetails.interestRate)
                     .font(.caption)
                     .foregroundColor(AppColors.muted)
                 Text(overview.formattedInterestRate)
@@ -100,7 +119,7 @@ extension LoanDetailsScreen {
             }
             Spacer()
             VStack(alignment: .trailing, spacing: 4) {
-                Text("Term")
+                Text(.LoanDetails.term)
                     .font(.caption)
                     .foregroundColor(AppColors.muted)
                 Text(overview.formattedTerm)
@@ -112,10 +131,10 @@ extension LoanDetailsScreen {
     
     private func renderPurpose(overview: OverviewDataView) -> some View {
         HStack {
-            Text("Purpose:")
+            Text(.LoanDetails.purpose)
                 .font(.subheadline)
                 .foregroundColor(AppColors.muted)
-            Text(overview.purpose)
+            Text(viewModel.loan.purpose.localized)
                 .font(.subheadline)
                 .fontWeight(.medium)
                 .foregroundColor(AppColors.ink)
@@ -138,7 +157,7 @@ extension LoanDetailsScreen {
 extension LoanDetailsScreen {
     private func renderKeyValueEmail(email: String) -> some View {
         HStack {
-            Text("Email")
+            Text(.LoanDetails.email)
                 .foregroundColor(AppColors.muted)
             Spacer()
             Text(email)
@@ -146,8 +165,8 @@ extension LoanDetailsScreen {
         }
     }
     
-    private func renderPilTier(tier: String, color: Color) -> some View {
-        Text(tier)
+    private func renderPilTier(tier: CreditScoreTier, color: Color) -> some View {
+        Text(tier.localized)
             .font(.caption)
             .fontWeight(.semibold)
             .padding(.horizontal, 8)
@@ -157,10 +176,11 @@ extension LoanDetailsScreen {
             .cornerRadius(6)
     }
     
-    private func renderKeyValueCreditScore(score: Int, tier: String) -> some View {
+    private func renderKeyValueCreditScore(score: Int) -> some View {
+        let tier = CreditScoreTier(score: score)
         let color = creditScoreColor(for: score)
         return HStack {
-            Text("Credit Score")
+            Text(.LoanDetails.creditScore)
                 .foregroundColor(AppColors.muted)
             Spacer()
             HStack(spacing: 6) {
@@ -175,18 +195,18 @@ extension LoanDetailsScreen {
     private func renderBorrowerInfo(data: BorrowerDataView) -> some View {
         VStack(alignment: .leading, spacing: 10) {
             renderKeyValueGeneral(
-                key: "Name",
+                keyResource: .LoanDetails.name,
                 value: data.name
             )
             renderKeyValueEmail(email: data.email)
-            renderKeyValueCreditScore(score: data.creditScore, tier: data.creditScoreTier)
+            renderKeyValueCreditScore(score: data.creditScore)
         }
     }
     
     private func renderBorrowerCardView(data: BorrowerDataView) -> some View {
         VStack(alignment: .leading, spacing: 14) {
             renderSectionTitleGeneral(
-                label: "Borrower Information",
+                labelResource: .LoanDetails.borrowerInformation,
                 systemImageName: "person.crop.circle"
             )
             Divider()
@@ -200,12 +220,12 @@ extension LoanDetailsScreen {
 extension LoanDetailsScreen {
     private func renderCollateralInfo(data: CollateralDataView) -> some View {
         VStack(alignment: .leading, spacing: 10) {
-            renderKeyValueGeneral(
-                key: "Type",
-                value: data.type
+            renderKeyValueLocalized(
+                keyResource: .LoanDetails.collateralType,
+                valueResource: .LoanDetails.realEstate
             )
             renderKeyValueGeneral(
-                key: "Estimated Value",
+                keyResource: .LoanDetails.estimatedValue,
                 value: data.formattedValue
             )
         }
@@ -214,7 +234,7 @@ extension LoanDetailsScreen {
     private func renderCollateralCardView(data: CollateralDataView) -> some View {
         VStack(alignment: .leading, spacing: 14) {
             renderSectionTitleGeneral(
-                label: "Collateral Details",
+                labelResource: .LoanDetails.collateralDetails,
                 systemImageName: "building.2"
             )
             Divider()
@@ -227,7 +247,7 @@ extension LoanDetailsScreen {
 // MARK: - Repayment Overview Card
 extension LoanDetailsScreen {
     private func renderEmptyInstallmentState() -> some View {
-        Text("No repayment installments scheduled.")
+        Text(.LoanDetails.noRepaymentInstallmentsScheduled)
             .foregroundColor(AppColors.muted)
             .font(.subheadline)
     }
@@ -241,7 +261,7 @@ extension LoanDetailsScreen {
                 .fontWeight(.bold)
                 .font(.subheadline)
                 .foregroundColor(AppColors.ink)
-            Text("Due \(dueDate)")
+            Text(.LoanDetails.due(dueDate))
                 .font(.caption2)
                 .foregroundColor(AppColors.muted)
         }
@@ -251,7 +271,7 @@ extension LoanDetailsScreen {
         VStack(spacing: 8) {
             ForEach(installments) { item in
                 HStack {
-                    Text(item.title)
+                    Text(.LoanDetails.installment(item.index + 1))
                         .font(.subheadline)
                         .foregroundColor(AppColors.ink)
                     Spacer()
@@ -280,7 +300,7 @@ extension LoanDetailsScreen {
     private func renderRepaymentCardView(data: RepaymentDataView) -> some View {
         VStack(alignment: .leading, spacing: 14) {
             renderSectionTitleGeneral(
-                label: "Repayment Schedule",
+                labelResource: .LoanDetails.repaymentSchedule,
                 systemImageName: "calendar.badge.clock"
             )
             Divider()
@@ -299,7 +319,7 @@ extension LoanDetailsScreen {
                 Image(systemName: "doc.text.slash")
                     .font(.system(size: 24))
                     .foregroundColor(AppColors.muted)
-                Text("No documents available")
+                Text(.LoanDetails.noDocumentsAvailable)
                     .font(.subheadline)
                     .foregroundColor(AppColors.muted)
             }
@@ -313,7 +333,7 @@ extension LoanDetailsScreen {
             router.navigate(to: .documents(viewModel.loan))
         }) {
             HStack {
-                Text("View Loan Documents")
+                Text(.LoanDetails.viewLoanDocuments)
                     .fontWeight(.medium)
                 Spacer()
                 Text(data.formattedCount)
@@ -341,7 +361,7 @@ extension LoanDetailsScreen {
     private func renderDocumentsCardView(data: DocumentsDataView) -> some View {
         VStack(alignment: .leading, spacing: 14) {
             renderSectionTitleGeneral(
-                label: "Documents",
+                labelResource: .LoanDetails.documents,
                 systemImageName: "doc.on.doc"
             )
             Divider()

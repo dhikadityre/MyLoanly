@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreDomain
 
 struct LoanDocumentsScreen: View {
     @StateObject var viewModel: LoanDocumentsScreenViewModel
@@ -21,7 +22,7 @@ struct LoanDocumentsScreen: View {
                 renderSuccessDocumentListViewState()
             }
         }
-        .navigationTitle("Loan Documents")
+        .navigationTitle(Text(.LoanDocuments.loanDocuments))
         .navigationBarTitleDisplayMode(.inline)
         .sheet(item: $selectedDocument) { doc in
             DocumentViewerSheet(document: doc)
@@ -35,10 +36,10 @@ extension LoanDocumentsScreen {
             Image(systemName: "doc.text.slash")
                 .font(.system(size: 64))
                 .foregroundColor(AppColors.muted)
-            Text("No Documents Found")
+            Text(.LoanDocuments.noDocumentsFound)
                 .font(.headline)
                 .foregroundColor(AppColors.ink)
-            Text("There are no documents uploaded for this loan.")
+            Text(.LoanDocuments.thereAreNoDocumentsUploadedForThisLoan)
                 .font(.subheadline)
                 .foregroundColor(AppColors.muted)
                 .multilineTextAlignment(.center)
@@ -59,10 +60,10 @@ extension LoanDocumentsScreen {
     
     private func renderDocumentInfo(title: String) -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(title)
+            Text(DocumentType(rawValue: title)?.localized ?? LocalizedStringResource(stringLiteral: title))
                 .font(.headline)
                 .foregroundColor(AppColors.ink)
-            Text("Tap to view document")
+            Text(.LoanDocuments.tapToViewDocument)
                 .font(.caption)
                 .foregroundColor(AppColors.muted)
         }

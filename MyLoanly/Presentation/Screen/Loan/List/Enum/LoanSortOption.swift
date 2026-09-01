@@ -16,4 +16,21 @@ public enum LoanSortOption: String, CaseIterable, Identifiable {
     case purpose = "Purpose"
     
     public var id: String { self.rawValue }
+    
+    public var localized: LocalizedStringResource {
+        switch self {
+        case .default:
+            return .LoanList.default
+        case .amountAscending:
+            return .LoanList.amountLowToHigh
+        case .amountDescending:
+            return .LoanList.amountHighToLow
+        case .termAscending:
+            return .LoanList.termShortToLong
+        case .termDescending:
+            return .LoanList.termLongToShort
+        case .purpose:
+            return .LoanList.purpose
+        }
+    }
 }

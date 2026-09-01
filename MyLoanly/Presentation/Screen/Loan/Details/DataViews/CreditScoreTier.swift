@@ -25,4 +25,15 @@ public enum CreditScoreTier: String {
     public static func getCreditScore(from score: Int) -> Self {
         CreditScoreTier(score: score)
     }
+    
+    public var localized: LocalizedStringResource {
+        switch self {
+        case .excellent:
+            return .LoanDetails.excellent
+        case .good:
+            return .LoanDetails.good
+        case .fair:
+            return .LoanDetails.fair
+        }
+    }
 }

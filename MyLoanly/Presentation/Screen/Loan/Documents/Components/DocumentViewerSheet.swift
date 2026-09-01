@@ -15,17 +15,23 @@ struct DocumentViewerSheet: View {
         NavigationView {
             WebView(url: document.resolvedURL)
                 .edgesIgnoringSafeArea(.bottom)
-                .navigationTitle(document.title)
+                .navigationTitle(Text(LocalizedStringKey(document.title), tableName: "LoanDocuments"))
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Button("Close") {
+                        Button(action: {
                             dismiss()
+                        }) {
+                            Text(.LoanDocuments.close)
                         }
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         ShareLink(item: document.resolvedURL) {
-                            Label("Share", systemImage: "square.and.arrow.up")
+                            Label {
+                                Text(.LoanDocuments.share)
+                            } icon: {
+                                Image(systemName: "square.and.arrow.up")
+                            }
                         }
                     }
                 }
