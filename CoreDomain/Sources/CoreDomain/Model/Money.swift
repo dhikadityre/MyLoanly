@@ -13,7 +13,7 @@ public struct Money: Equatable {
 
     public init(
         amount: Decimal,
-        currency: Currency = .usd
+        currency: Currency = .idr
     ) {
         self.amount = amount
         self.currency = currency
@@ -21,5 +21,12 @@ public struct Money: Equatable {
 }
 
 public enum Currency: String {
+    case idr = "IDR"
     case usd = "USD"
+}
+
+public extension Money {
+    var formatted: String {
+        amount.toCurrency(currency: currency)
+    }
 }

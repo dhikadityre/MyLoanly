@@ -60,11 +60,23 @@ public struct Percentage: Equatable {
     }
 }
 
+public extension Percentage {
+    var formatted: String {
+        value.toPercentage()
+    }
+}
+
 public struct LoanTerm: Equatable {
     public let days: Int
     
     public init(days: Int) {
         self.days = days
+    }
+}
+
+public extension LoanTerm {
+    var formattedMonths: String {
+        days.formattedMonths
     }
 }
 
