@@ -9,25 +9,6 @@ import Combine
 import Foundation
 import CoreDomain
 
-public enum LoanViewState: Equatable {
-    case idle
-    case loading
-    case success
-    case empty
-    case error(String)
-}
-
-public enum LoanSortOption: String, CaseIterable, Identifiable {
-    case `default` = "Default"
-    case amountAscending = "Amount: Low to High"
-    case amountDescending = "Amount: High to Low"
-    case termAscending = "Term: Short to Long"
-    case termDescending = "Term: Long to Short"
-    case purpose = "Purpose"
-    
-    public var id: String { self.rawValue }
-}
-
 public final class LoanListScreenViewModel: ObservableObject {
     private let getLoansUseCase: GetLoansUseCase
     
