@@ -6,7 +6,20 @@
 //
 
 import Combine
+import Foundation
+import CoreDomain
 
-class LoanDocumentsScreenViewModel: ObservableObject {
+public final class LoanDocumentsScreenViewModel: ObservableObject {
+    @Published public var documents: [DocumentItemDataView]
     
+    public var isEmpty: Bool { documents.isEmpty }
+    
+    public init(documents: [LoanDocument]) {
+        self.documents = documents.map { DocumentItemDataView(document: $0) }
+    }
+    
+    public init(documentDataViews: [DocumentItemDataView]) {
+        self.documents = documentDataViews
+    }
 }
+

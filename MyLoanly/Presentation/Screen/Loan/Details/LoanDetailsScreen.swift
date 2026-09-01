@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreDomain
 
 struct LoanDetailsScreen: View {
     @StateObject var viewModel: LoanDetailsScreenViewModel
