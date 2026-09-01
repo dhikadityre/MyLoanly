@@ -6,65 +6,66 @@
 [![Architecture](https://img.shields.io/badge/Architecture-Clean%20%2B%20Modular%20SPM%20%2B%20MVVM-green.svg)](https://github.com)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)](LICENSE)
 
-**MyLoanly** adalah aplikasi iOS modern untuk pemantauan dan pengelolaan portofolio pinjaman (P2P Lending / Loan Management). Aplikasi ini dirancang menggunakan **SwiftUI**, **Clean Architecture**, dan **Modular Architecture (Swift Package Manager)** untuk memastikan kode yang *decoupled*, *scalable*, dan mudah diuji (*testable*).
+**MyLoanly** is a modern iOS application for loan portfolio monitoring and peer-to-peer (P2P) lending management. Built with **SwiftUI**, **Clean Architecture**, and **Modular Swift Packages (SPM)**, it ensures a decoupled, scalable, and highly testable codebase.
 
 ---
 
-## 📌 Daftar Isi
-- [Deskripsi Singkat](#-deskripsi-singkat)
+## 📌 Table of Contents
+- [Overview](#-overview)
 - [Key Features](#-key-features)
-- [Arsitektur Overview](#-arsitektur-overview)
-- [Preview Flow](#-preview-flow)
+- [Architecture Overview](#-architecture-overview)
+- [Application Flow](#-application-flow)
 - [Preview Table (Screenshots)](#-preview-table-screenshots)
-- [Tech Stack & Library](#-tech-stack--library)
+- [Tech Stack & Dependencies](#-tech-stack--dependencies)
 - [Requirements](#-requirements)
-- [Build Schemes & Environment](#-build-schemes--environment)
+- [Build Schemes & Environments](#-build-schemes--environments)
 - [Running Unit Tests](#-running-unit-tests)
-- [Struktur Proyek](#-struktur-proyek)
+- [Project Structure](#-project-structure)
+- [Author & Maintainer](#-author--maintainer)
 
 ---
 
-## 📖 Deskripsi Singkat
+## 📖 Overview
 
-**MyLoanly** memberikan pengalaman intuitif bagi pengguna untuk melihat daftar pinjaman aktif, melakukan filter dan pencarian komprehensif, menganalisis profil risiko dan riwayat peminjam (*borrower*), memeriksa jadwal angsuran (*repayment schedule*), hingga melihat dokumen verifikasi pinjaman secara langsung melalui *in-app document viewer*.
+**MyLoanly** provides an intuitive user experience for exploring active loan listings, applying comprehensive filters and search queries, analyzing borrower risk profiles and credit scores, inspecting repayment installment schedules, and previewing verified loan documents directly via an in-app viewer.
 
-Aplikasi ini juga dilengkapi dengan dukungan multi-bahasa (*dynamic localization*) dan *built-in developer debug tools* untuk kemudahan *monitoring* performa saat pengembangan.
+The app also features dynamic multi-language support (localization) and built-in developer debugging tools for real-time performance and network monitoring during development.
 
 ---
 
 ## ✨ Key Features
 
 1. **Loan Catalog & Exploration**
-   - Pencarian cerdas berdasarkan nama peminjam (*borrower name*) atau tujuan pinjaman (*loan purpose*).
-   - Filter cepat berdasarkan **Tingkat Risiko / Risk Rating** (Rating A, B, C, D).
-   - Filter berdasarkan **Tujuan Pinjaman / Purpose** (*Business Expansion, Equipment Purchase, Inventory Financing, Working Capital*).
-   - Menu Sorting fleksibel (berdasarkan Nominal Pinjaman, Suku Bunga, Tenor, dan Tanggal).
+   - Smart search by borrower name or loan purpose.
+   - Quick filtering by **Risk Rating** (A, B, C, D).
+   - Filtering by **Loan Purpose** (*Business Expansion, Equipment Purchase, Inventory Financing, Working Capital*).
+   - Flexible sorting options (by Loan Amount, Interest Rate, Term Duration, or Date).
 
 2. **Portfolio Summary & Aggregator**
-   - Ringkasan total akumulasi nominal pinjaman aktif (*Total Active Loans*).
-   - Penghitung total unit pinjaman aktif yang sedang berjalan.
+   - Real-time aggregated summary of total active loan amounts (*Total Active Loans*).
+   - Real-time counter of total active loan listings.
 
 3. **Comprehensive Loan Details**
-   - **Overview Card**: Nominal pinjaman, suku bunga tahunan, durasi/tenor, dan badge tingkat risiko.
-   - **Borrower Information**: Nama, kontak email, dan skor kredit (*credit score*) lengkap dengan kategori tier (*Excellent, Good, Fair*).
-   - **Collateral Details**: Jenis agunan/jaminan dan estimasi valuasi aset.
-   - **Repayment Schedule**: Daftar rincian jadwal cicilan angsuran (*installments*) beserta tanggal jatuh tempo (*due date*).
+   - **Overview Card**: Loan amount, annual interest rate, duration/term, and risk rating badge.
+   - **Borrower Information**: Name, contact email, credit score, and color-coded tiering (*Excellent, Good, Fair*).
+   - **Collateral Details**: Collateral asset type and estimated market valuation.
+   - **Repayment Schedule**: Detailed breakdown of installments and upcoming due dates.
 
 4. **In-App Document Viewer**
-   - Pratinjau dokumen legal/verifikasi pinjaman (*Income Statement, Tax Return, Bank Statements, Business Registration, Collateral Deed*) dengan *sheet modal viewer*.
+   - Inspect legal and financial verification documents (*Income Statement, Tax Return, Bank Statements, Business Registration, Collateral Deed*) via a modal sheet viewer.
 
-5. **In-App Localization (Multi-Bahasa Dinamis)**
-   - Mendukung **Bahasa Indonesia (ID)** dan **English (US)**.
-   - Perubahan bahasa dapat dilakukan langsung di menu Pengaturan (*About Screen*) secara *real-time* tanpa perlu memulai ulang (*restart*) aplikasi.
+5. **Dynamic In-App Localization**
+   - Supports **English (US)** and **Indonesian (ID)**.
+   - Switch languages on-the-fly directly from the Settings / About screen without restarting the application.
 
-6. **In-App Debugger & Network Profiler (Debug Mode)**
-   - Integrasi `DebugSwift` pada skema *Development/Debug* untuk memonitor *network request/response*, konsumsi memori (*memory leak detection*), dan *performance profiler*.
+6. **In-App Developer Debugger & Network Profiler (Debug Mode)**
+   - Integrated with `DebugSwift` in development builds for real-time HTTP traffic inspection, memory leak detection, and performance profiling.
 
 ---
 
-## 🏛 Arsitektur Overview
+## 🏛 Architecture Overview
 
-MyLoanly dibangun dengan pola **Clean Architecture + Modular Swift Packages (SPM) + MVVM-R (Router)**:
+MyLoanly follows **Clean Architecture + Modular Swift Packages (SPM) + MVVM-R (Router)** principles:
 
 ```
 ┌────────────────────────────────────────────────────────┐
@@ -86,52 +87,52 @@ MyLoanly dibangun dengan pola **Clean Architecture + Modular Swift Packages (SPM
 └────────────────────────────────────────────────────────┘
 ```
 
-### Modul & Tanggung Jawab:
+### Modules & Responsibilities:
 
-1. **`CoreDomain` (Swift Package - Pure Swift & macOS/iOS compatible)**
-   - Berisi entitas murni: `Loan`, `Borrower`, `Collateral`, `RepaymentSchedule`, `Money`, `LoanTerm`.
-   - Business Logic & Use Case: `GetLoansUseCase`.
+1. **`CoreDomain` (Swift Package - Pure Swift, macOS & iOS compatible)**
+   - Pure Domain Entities: `Loan`, `Borrower`, `Collateral`, `RepaymentSchedule`, `Money`, `LoanTerm`.
+   - Business Logic & Use Cases: `GetLoansUseCase`.
    - Repository Protocol: `CoreRepository`.
-   - Bebas dari dependensi UI (*framework-agnostic*).
+   - Framework-agnostic with zero third-party or UI dependencies.
 
 2. **`PackageData` (Swift Package)**
-   - Mengimplementasikan `CoreRepository` melalui `CoreRepositoryImpl`.
-   - Abstraksi jaringan: `HTTPClient` dan `URLSessionHTTPClient`.
-   - Serialisasi DTO JSON & error handling.
+   - Implements `CoreRepository` via `CoreRepositoryImpl`.
+   - Networking abstractions: `HTTPClient` and `URLSessionHTTPClient`.
+   - JSON DTO serialization, domain mapping, and error handling.
 
 3. **`MyLoanly` (Main iOS Application Target)**
    - **Presentation**: SwiftUI Views (`LoanListScreen`, `LoanDetailsScreen`, `LoanDocumentsScreen`, `AboutScreen`).
-   - **ViewModels**: Menangani *state management* (`@MainActor`, `ObservableObject`, `Async/Await`).
-   - **Router**: Pengelolaan navigasi berbasis `NavigationStack` (`LoanNavigationRouter`).
+   - **ViewModels**: State management adhering to Swift Concurrency (`@MainActor`, `ObservableObject`, `async/await`).
+   - **Router**: Centralized navigation flow using `NavigationStack` (`LoanNavigationRouter`).
    - **Config & Localization**: `AppLanguageManager`, `AppConfig`, `AppColors`.
 
 ---
 
-## 🔄 Preview Flow
+## 🔄 Application Flow
 
 ```mermaid
 flowchart TD
-    Start([Buka Aplikasi]) --> MainTab{Pilih Tab Navigasi}
+    Start([Launch App]) --> MainTab{Select Tab}
     
-    %% Tab 1: Pinjaman
-    MainTab -->|Tab Loans| LoanList[Loan List Screen]
-    LoanList --> SearchFilter[Search / Filter Risk & Purpose / Sorting]
+    %% Tab 1: Loans
+    MainTab -->|Loans Tab| LoanList[Loan List Screen]
+    LoanList --> SearchFilter[Search / Filter Risk & Purpose / Sort]
     SearchFilter --> LoanList
-    LoanList -->|Tap Card Pinjaman| LoanDetails[Loan Details Screen]
+    LoanList -->|Tap Loan Card| LoanDetails[Loan Details Screen]
     
-    subgraph LoanDetailsSection [Detail Pinjaman]
-        LoanDetails --> BorrowerInfo[Informasi Peminjam & Credit Score]
-        LoanDetails --> CollateralInfo[Informasi Agunan & Valuasi]
-        LoanDetails --> RepaymentInfo[Jadwal Angsuran & Tanggal Jatuh Tempo]
-        LoanDetails -->|Tap Dokumen| DocViewer[Loan Documents Screen / Sheet Viewer]
+    subgraph LoanDetailsSection [Loan Details]
+        LoanDetails --> BorrowerInfo[Borrower Info & Credit Score]
+        LoanDetails --> CollateralInfo[Collateral Info & Valuation]
+        LoanDetails --> RepaymentInfo[Repayment Schedule & Due Dates]
+        LoanDetails -->|Tap View Documents| DocViewer[Loan Documents Screen / Sheet Viewer]
     end
     
     %% Tab 2: About / Settings
-    MainTab -->|Tab About| AboutScreen[About Screen]
-    subgraph AboutSection [Pengaturan & Info]
-        AboutScreen --> AppInfo[Informasi Versi Aplikasi & Developer]
-        AboutScreen --> LanguagePicker[Ubah Bahasa: Indonesia / English]
-        LanguagePicker -->|Update Locale Real-time| MainTab
+    MainTab -->|About Tab| AboutScreen[About Screen]
+    subgraph AboutSection [Settings & Info]
+        AboutScreen --> AppInfo[App Version & Developer Information]
+        AboutScreen --> LanguagePicker[Switch Language: English / Indonesian]
+        LanguagePicker -->|Real-time Locale Update| MainTab
     end
 ```
 
@@ -139,80 +140,80 @@ flowchart TD
 
 ## 📱 Preview Table (Screenshots)
 
-Berikut adalah template tampilan antarmuka (*user interface*) aplikasi **MyLoanly**:
+Below is the user interface preview template for **MyLoanly**:
 
-| Screen / Fitur | Light Mode | Dark Mode | Deskripsi |
+| Screen / Feature | Light Mode | Dark Mode | Description |
 | :--- | :---: | :---: | :--- |
-| **Loan List Screen** | ![Loan List Light](docs/screenshots/loan_list_light.png) | ![Loan List Dark](docs/screenshots/loan_list_dark.png) | Menampilkan daftar pinjaman aktif, ringkasan total portofolio, search bar, chip filter risiko & tujuan pinjaman, serta menu sorting. |
-| **Loan Details Screen** | ![Loan Details Light](docs/screenshots/loan_details_light.png) | ![Loan Details Dark](docs/screenshots/loan_details_dark.png) | Rincian lengkap nominal, suku bunga, data peminjam & credit rating badge, agunan, dan tabel jadwal cicilan. |
-| **Loan Documents Screen** | ![Loan Documents Light](docs/screenshots/loan_documents_light.png) | ![Loan Documents Dark](docs/screenshots/loan_documents_dark.png) | Daftar berkas verifikasi dan pratinjau dokumen legal / finansial melalui in-app viewer. |
-| **About & Settings Screen** | ![About Screen Light](docs/screenshots/about_light.png) | ![About Screen Dark](docs/screenshots/about_dark.png) | Informasi pengembang, versi rilis aplikasi, dan pemilih bahasa (*Localization Switcher*). |
+| **Loan List Screen** | ![Loan List Light](docs/screenshots/loan_list_light.png) | ![Loan List Dark](docs/screenshots/loan_list_dark.png) | Displays active loan cards, portfolio summary header, search bar, risk & purpose filter chips, and sort menu. |
+| **Loan Details Screen** | ![Loan Details Light](docs/screenshots/loan_details_light.png) | ![Loan Details Dark](docs/screenshots/loan_details_dark.png) | In-depth breakdown of loan amount, interest rate, borrower information, credit score tiering, collateral, and repayment installments. |
+| **Loan Documents Screen** | ![Loan Documents Light](docs/screenshots/loan_documents_light.png) | ![Loan Documents Dark](docs/screenshots/loan_documents_dark.png) | Verified document checklist with modal sheet previews for legal and financial files. |
+| **About & Settings Screen** | ![About Screen Light](docs/screenshots/about_light.png) | ![About Screen Dark](docs/screenshots/about_dark.png) | App release metadata, developer portfolio links, and dynamic in-app language picker. |
 
-> 💡 *Catatan: Letakkan file tangkapan layar pada folder `docs/screenshots/` dengan nama file yang sesuai.*
+> 💡 *Note: Place your screenshot assets into the `docs/screenshots/` directory matching the designated filenames.*
 
 ---
 
-## 🛠 Tech Stack & Library
+## 🛠 Tech Stack & Dependencies
 
-| Kategori | Teknologi / Library | Keterangan |
+| Category | Technology / Library | Description |
 | :--- | :--- | :--- |
-| **Language** | Swift 6.0 | Menggunakan fitur Swift Concurrency terbaru (`async/await`, `Sendable`, `@MainActor`). |
-| **UI Framework** | SwiftUI & WebKit | Declarative UI dengan NavigationStack & WebKit viewer. |
-| **Architecture** | Clean Architecture + Modular SPM | Pemisahan domain murni, data infra, dan layer presentasi. |
-| **Dependency Manager**| Swift Package Manager (SPM) | Native SPM untuk local package & third-party libraries. |
-| **Third-Party Library** | [DebugSwift](https://github.com/DebugSwift/DebugSwift) (`v1.19.0`) | In-app performance profiling, network inspector, dan memory leak detector (Debug build). |
-| **Unit Testing** | XCTest | Pengujian menyeluruh pada Use Cases, ViewModels, Repository, dan Localization. |
+| **Language** | Swift 6.0 | Modern Swift Concurrency (`async/await`, `Sendable`, `@MainActor`). |
+| **UI Framework** | SwiftUI & WebKit | Declarative UI with `NavigationStack` & WebKit document viewer. |
+| **Architecture** | Clean Architecture + Modular SPM | Clean separation of pure domain logic, data infra, and presentation. |
+| **Dependency Manager**| Swift Package Manager (SPM) | Native SPM for local modular packages and external dependencies. |
+| **Third-Party Library** | [DebugSwift](https://github.com/DebugSwift/DebugSwift) (`v1.19.0`) | In-app performance profiling, network inspector, and memory leak detector (Debug builds). |
+| **Unit Testing** | XCTest | Comprehensive test coverage across Use Cases, ViewModels, Repositories, and Localization. |
 
 ---
 
 ## 📋 Requirements
 
-Sebelum menjalankan proyek, pastikan lingkungan pengembangan Anda memenuhi spesifikasi berikut:
+Before building the project, ensure your development environment meets the following specifications:
 
-- **macOS**: Sonoma (14.0+) atau Sequoia (15.0+)
-- **Xcode**: Versi 16.0 atau lebih baru
+- **macOS**: Sonoma (14.0+) or Sequoia (15.0+)
+- **Xcode**: Version 16.0 or later
 - **Swift**: 6.0+
 - **iOS Deployment Target**: iOS 16.0+
-- **Simulator / Device**: iPhone dengan iOS 16.0+
+- **Simulator / Physical Device**: iPhone running iOS 16.0+
 
 ---
 
-## ⚙️ Build Schemes & Environment
+## ⚙️ Build Schemes & Environments
 
-Proyek ini menggunakan konfigurasi multi-environment berbasis `.xcconfig` di folder `XCConfig/`:
+The project utilizes multi-environment build configurations driven by `.xcconfig` files located in `XCConfig/`:
 
-| Scheme Name | Build Configuration | Bundle Identifier | Endpoint API / Kegunaan |
+| Scheme Name | Build Configuration | Bundle Identifier | API Endpoint / Purpose |
 | :--- | :--- | :--- | :--- |
-| **`MyLoanly-Development`** | `Debug-Development` | `com.dhikadityre.myloanly.Development` | Lingkungan pengembangan lokal + DebugSwift aktif. |
-| **`MyLoanly-Staging`** | `Debug-Staging` / `Release-Staging` | `com.dhikadityre.myloanly.Staging` | Lingkungan pengujian internal / QA team. |
-| **`MyLoanly-UAT`** | `Debug-UAT` / `Release-UAT` | `com.dhikadityre.myloanly.UAT` | Lingkungan pengujian User Acceptance Testing. |
-| **`MyLoanly-Production`** | `Debug-Production` / `Release-Production` | `com.dhikadityre.myloanly` | Lingkungan produksi live / App Store release. |
-| **`CoreDomain`** | Debug / Release | *SPM Library* | Modul murni Domain Logic (mendukung macOS & iOS). |
-| **`PackageData`** | Debug / Release | *SPM Library* | Modul Data Jaringan & Repository (mendukung macOS & iOS). |
+| **`MyLoanly-Development`** | `Debug-Development` | `com.dhikadityre.myloanly.Development` | Local development environment with DebugSwift enabled. |
+| **`MyLoanly-Staging`** | `Debug-Staging` / `Release-Staging` | `com.dhikadityre.myloanly.Staging` | Internal QA testing and staging validation. |
+| **`MyLoanly-UAT`** | `Debug-UAT` / `Release-UAT` | `com.dhikadityre.myloanly.UAT` | User Acceptance Testing environment. |
+| **`MyLoanly-Production`** | `Debug-Production` / `Release-Production` | `com.dhikadityre.myloanly` | Production release environment for the App Store. |
+| **`CoreDomain`** | Debug / Release | *SPM Library* | Pure Domain Logic package (supports macOS & iOS). |
+| **`PackageData`** | Debug / Release | *SPM Library* | Data Networking & Repository package (supports macOS & iOS). |
 
 ---
 
 ## 🧪 Running Unit Tests
 
-Proyek ini dirancang agar pengujian unit test dapat dijalankan dengan **sangat cepat** melalui pemisahan modul SPM.
+The modular architecture enables **ultra-fast test execution** for core packages without requiring an iOS Simulator.
 
-### 1. ⚡ Versi Cepat (Fast Execution via macOS Target / CLI)
-Karena modul `CoreDomain` dan `PackageData` adalah pustaka Swift murni tanpa dependensi UIKit/iOS Simulator, unit test dapat dieksekusi langsung pada target **macOS** (hanya memerlukan waktu < 1 detik):
+### 1. ⚡ Fast Execution (macOS Target / Swift Package CLI)
+Because `CoreDomain` and `PackageData` are pure Swift/Foundation libraries with macOS support, their tests execute natively on **macOS** in less than a second:
 
-#### Menjalankan Test `CoreDomain` via Swift CLI:
+#### Run `CoreDomain` tests via Swift CLI:
 ```bash
 cd CoreDomain
 swift test
 ```
 
-#### Menjalankan Test `PackageData` via macOS Destination:
+#### Run `PackageData` tests via macOS destination:
 ```bash
 xcodebuild test \
   -scheme PackageData \
   -destination 'platform=macOS'
 ```
 
-#### Menjalankan Test `CoreDomain` via Xcodebuild:
+#### Run `CoreDomain` tests via Xcodebuild:
 ```bash
 xcodebuild test \
   -scheme CoreDomain \
@@ -221,8 +222,8 @@ xcodebuild test \
 
 ---
 
-### 2. 📱 Versi Simulator (Presentation & ViewModel Tests)
-Untuk menguji layer presentasi (`MyLoanlyTests`), ViewModel, dan Localization yang memiliki dependensi lingkungan iOS:
+### 2. 📱 Simulator Tests (Presentation & ViewModel Layer)
+To test the presentation layer (`MyLoanlyTests`), ViewModels, and Localization on an iOS Simulator:
 
 ```bash
 xcodebuild test \
@@ -232,46 +233,46 @@ xcodebuild test \
 
 ---
 
-### 3. ⌨️ Menjalankan Langsung dari Xcode IDE
-- Buka `MyLoanly.xcodeproj` di Xcode.
-- Pilih Scheme yang ingin diuji (misal: `MyLoanly-Development`, `CoreDomain`, atau `PackageData`).
-- Tekan shortcut **`Cmd + U`** untuk menjalankan semua test suite.
+### 3. ⌨️ Running from Xcode IDE
+- Open `MyLoanly.xcodeproj` in Xcode.
+- Select the desired Scheme (e.g., `MyLoanly-Development`, `CoreDomain`, or `PackageData`).
+- Press **`Cmd + U`** to execute all tests.
 
 ---
 
-## 📁 Struktur Proyek
+## 📁 Project Structure
 
 ```text
 MyLoanly/
-├── CoreDomain/                 # [SPM] Modul Domain Layer (Entities, UseCases, Repo Contracts)
+├── CoreDomain/                 # [SPM] Domain Layer (Entities, Use Cases, Repo Protocols)
 │   ├── Sources/CoreDomain/
-│   │   ├── Model/             # Loan, Borrower, Collateral, Money, dsb.
+│   │   ├── Model/             # Loan, Borrower, Collateral, Money, etc.
 │   │   ├── Repositories/      # CoreRepository Protocol
 │   │   └── UseCase/           # GetLoansUseCase
-│   └── Tests/CoreDomainTests/ # Unit Tests untuk Use Case & Models
+│   └── Tests/CoreDomainTests/ # Unit Tests for Use Cases & Models
 │
-├── PackageData/                # [SPM] Modul Data Layer (Network, DTO, Repo Implementation)
+├── PackageData/                # [SPM] Data Layer (Networking, DTOs, Repo Implementation)
 │   ├── Sources/PackageData/
 │   │   ├── Infra/             # HTTPClient, URLSessionHTTPClient
 │   │   ├── Services/          # CoreRepositoryImpl
-│   │   └── Utilities/         # Logger & Helper
-│   └── Tests/PackageDataTests/# Unit Tests untuk Repository & Network
+│   │   └── Utilities/         # Logger & Helper utilities
+│   └── Tests/PackageDataTests/# Unit Tests for Repository & Network Client
 │
 ├── MyLoanly/                   # [App Target] Presentation & App Lifecycle
 │   ├── App/
 │   │   ├── Config/            # AppConfig & AppLanguageManager
-│   │   ├── AppDelegate.swift  # DebugSwift configuration
+│   │   ├── AppDelegate.swift  # DebugSwift setup
 │   │   └── MyLoanlyApp.swift  # SwiftUI App Entry Point
 │   ├── Presentation/
 │   │   ├── Components/        # Reusable UI (LoanCardView, RiskBadgeView, FilterChip)
-│   │   ├── Extensions/        # View styling modifiers
+│   │   ├── Extensions/        # View styling modifiers & color tokens
 │   │   ├── Screen/
-│   │   │   ├── Loan/          # LoanList, LoanDetails, LoanDocuments, Router
+│   │   │   ├── Loan/          # LoanList, LoanDetails, LoanDocuments, NavigationRouter
 │   │   │   └── About/         # AboutScreen, SettingsRowView
 │   │   └── Theme/             # AppColors & Design Tokens
 │   └── Assets.xcassets/       # Color assets & icon resources
 │
-├── MyLoanlyTests/              # Unit Tests untuk ViewModels & Localization
+├── MyLoanlyTests/              # Presentation & ViewModel Unit Tests
 │   ├── LocalizationTests.swift
 │   └── ViewModels/            # LoanList, LoanDetails, AboutScreen ViewModel Tests
 │
@@ -283,7 +284,7 @@ MyLoanly/
 │   └── Production.xcconfig
 │
 ├── MyLoanly.xcodeproj          # Xcode Project file
-└── README.md                   # Dokumentasi Utama Proyek
+└── README.md                   # Primary Project Documentation
 ```
 
 ---
