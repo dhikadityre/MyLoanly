@@ -1,0 +1,21 @@
+//
+//  AppGroupBoxStyle.swift
+//  MyLoanly
+//
+//  Created by DHIKA ADITYA ARE on 01/09/26.
+//
+
+import SwiftUI
+
+public struct AppGroupBoxStyle: GroupBoxStyle {
+    public func makeBody(configuration: Configuration) -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            configuration.label
+            configuration.content
+        }
+        .padding()
+        .background(AppColors.surface)
+        .cornerRadius(16)
+        .shadow(color: Color.black.opacity(0.03), radius: 5, x: 0, y: 2)
+    }
+}

@@ -10,10 +10,13 @@ import SwiftUI
 @main
 struct MyLoanlyApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject private var languageManager = AppLanguageManager.shared
     
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(languageManager)
+                .environment(\.locale, languageManager.currentLanguage.locale)
         }
     }
 }

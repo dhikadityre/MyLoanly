@@ -19,7 +19,7 @@ struct LocalizationTests {
         Bundle.main.path(forResource: "id", ofType: "lproj").flatMap(Bundle.init(path:)) ?? .main
     }
     
-    private static let allTables = ["LoanList", "LoanDetails", "LoanDocuments"]
+    private static let allTables = ["LoanList", "LoanDetails", "LoanDocuments", "About"]
     private static let supportedLanguages = ["en", "id"]
     
     private func localizedKeys(inTable table: String, forLanguage language: String) -> [String: String] {

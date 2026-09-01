@@ -28,6 +28,7 @@ struct LoanDetailsScreen: View {
         .background(AppColors.canvas)
         .navigationTitle(Text(.LoanDetails.loanDetails))
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 

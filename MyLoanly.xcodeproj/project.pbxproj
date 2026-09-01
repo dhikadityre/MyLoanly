@@ -45,6 +45,7 @@
 		70F311D63046E2E5004B9F2F /* Exceptions for "MyLoanly" folder in "MyLoanlyTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Presentation/Screen/About/About.xcstrings,
 				Presentation/Screen/Loan/Details/LoanDetails.xcstrings,
 				Presentation/Screen/Loan/Documents/LoanDocuments.xcstrings,
 				Presentation/Screen/Loan/List/LoanList.xcstrings,

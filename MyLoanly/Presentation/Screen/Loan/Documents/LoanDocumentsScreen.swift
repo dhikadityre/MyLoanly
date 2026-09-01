@@ -24,6 +24,7 @@ struct LoanDocumentsScreen: View {
         }
         .navigationTitle(Text(.LoanDocuments.loanDocuments))
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar(.hidden, for: .tabBar)
         .sheet(item: $selectedDocument) { doc in
             DocumentViewerSheet(document: doc)
         }
