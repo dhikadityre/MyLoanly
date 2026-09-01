@@ -142,14 +142,13 @@ flowchart TD
 
 Below is the user interface preview template for **MyLoanly**:
 
-| Screen / Feature | Light Mode | Dark Mode | Description |
+| Screen / Feature | Light Mode/English | Dark Mode/Indonesia | Description |
 | :--- | :---: | :---: | :--- |
-| **Loan List Screen** | ![Loan List Light](docs/screenshots/loan_list_light.png) | ![Loan List Dark](docs/screenshots/loan_list_dark.png) | Displays active loan cards, portfolio summary header, search bar, risk & purpose filter chips, and sort menu. |
-| **Loan Details Screen** | ![Loan Details Light](docs/screenshots/loan_details_light.png) | ![Loan Details Dark](docs/screenshots/loan_details_dark.png) | In-depth breakdown of loan amount, interest rate, borrower information, credit score tiering, collateral, and repayment installments. |
-| **Loan Documents Screen** | ![Loan Documents Light](docs/screenshots/loan_documents_light.png) | ![Loan Documents Dark](docs/screenshots/loan_documents_dark.png) | Verified document checklist with modal sheet previews for legal and financial files. |
-| **About & Settings Screen** | ![About Screen Light](docs/screenshots/about_light.png) | ![About Screen Dark](docs/screenshots/about_dark.png) | App release metadata, developer portfolio links, and dynamic in-app language picker. |
-
-> 💡 *Note: Place your screenshot assets into the `docs/screenshots/` directory matching the designated filenames.*
+| **Loan List Screen** | <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-09-01 at 20 58 26" src="https://github.com/user-attachments/assets/d02a838e-2b96-4b73-92ad-50710a4e9c45" /> | <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-09-01 at 20 59 46" src="https://github.com/user-attachments/assets/afc8a71f-2b90-4b3b-a0c8-9dfa91a9a3bf" /> | Displays active loan cards, portfolio summary header, search bar, risk & purpose filter chips, and sort menu. |
+| **Loan Details Screen** | <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-09-01 at 20 58 42" src="https://github.com/user-attachments/assets/23d682ef-bea1-4856-8841-9a96564abe37" /> | <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-09-01 at 20 59 57" src="https://github.com/user-attachments/assets/5568a546-7a1b-46fd-a14c-02ac8b237da0" /> | In-depth breakdown of loan amount, interest rate, borrower information, credit score tiering, collateral, and repayment installments. |
+| **Loan Documents Screen** | <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-09-01 at 21 05 38" src="https://github.com/user-attachments/assets/1bb7a87f-9308-49f7-8617-1bcb6585fe6d" /> | <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-09-01 at 21 00 03" src="https://github.com/user-attachments/assets/94ce2b77-b4c9-4b8f-83c4-527a9cdaf115" /> |Verified document checklist with modal sheet previews for legal and financial files. |
+| **Loan Documents Sheet** | <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-09-01 at 20 58 52" src="https://github.com/user-attachments/assets/cefd582a-d503-4fcc-a32a-516359d6ad4d" /> | <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-09-01 at 21 00 07" src="https://github.com/user-attachments/assets/daa136ae-0bfb-464d-aedf-63d25008ae56" /> | Verified document checklist with modal sheet previews for legal and financial files. |
+| **About & Settings Screen** | <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-09-01 at 20 59 05" src="https://github.com/user-attachments/assets/e1720eee-295e-4e6e-ae57-658e71d34314" /> | <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-09-01 at 21 00 15" src="https://github.com/user-attachments/assets/b120675a-c7b4-4c1f-8b65-20eb598ba9f0" /> | App release metadata, developer portfolio links, and dynamic in-app language picker. |
 
 ---
 
