@@ -242,6 +242,9 @@ xcodebuild test \
 - Open `MyLoanly.xcodeproj` in Xcode.
 - Select the desired Scheme (e.g., `MyLoanly-Development`, `CoreDomain`, or `PackageData`).
 - Press **`Cmd + U`** to execute all tests.
+Preview:
+<img width="283" height="337" alt="Screenshot 2026-09-02 at 09 56 20" src="https://github.com/user-attachments/assets/d6b907fd-e80c-488b-930d-0e27cc115cc0" />
+
 
 ---
 
