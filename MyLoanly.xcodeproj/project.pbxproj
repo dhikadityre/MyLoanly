@@ -95,8 +95,9 @@
 		705B00AA304560E40032BDB1 = {
 			isa = PBXGroup;
 			children = (
+				705B0168304569A30032BDB1 /* CoreDomain */,
+				705B0166304568F30032BDB1 /* PackageData */,
 				705B017430456E5B0032BDB1 /* XCConfig */,
-				705B01653045689B0032BDB1 /* Packages */,
 				705B00B5304560E40032BDB1 /* MyLoanly */,
 				705B00C3304560E70032BDB1 /* MyLoanlyTests */,
 				705B016930456AB90032BDB1 /* Frameworks */,
@@ -111,15 +112,6 @@
 				705B00C0304560E70032BDB1 /* MyLoanlyTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		705B01653045689B0032BDB1 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				705B0168304569A30032BDB1 /* CoreDomain */,
-				705B0166304568F30032BDB1 /* PackageData */,
-			);
-			path = Packages;
 			sourceTree = "<group>";
 		};
 		705B016930456AB90032BDB1 /* Frameworks */ = {
